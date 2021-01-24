@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
     selectedValues: string[] = ['val1','val2'];
 
     selectedCities: City[];
+    cities2: [];
     selectedCity: City;
 
     records ;
@@ -46,7 +47,12 @@ export class HomeComponent implements OnInit {
         console.log(this.cities)
     }
   ngOnInit() {
-  let countries=this.countryservice.getCountries();
+  let countries=this.countryservice.getCountries().subscribe(
+  res=>
+  {
+  this.cities2=res.data;
+  console.log(this.cities2)
+  });
   console.log(countries);
   }
   downloadSample(){

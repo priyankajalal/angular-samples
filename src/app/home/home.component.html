@@ -20,13 +20,17 @@
   </div>
 </div>
 
-<div class="ui-g-12 ui-lg-6">
+<div class="ui-g-12 ui-lg-12">
   <div class="ui-g-6 ui-lg-6">
     <p-dropdown [options]="cities" optionLabel="name" [(ngModel)]="selectedCity" [filter]="true"></p-dropdown>
   </div>
   <div class="ui-g-6 ui-lg-6">
 
-    <p-multiSelect (onChange)="selectionChanged($event)"[options]="cities" optionLabel="name" [(ngModel)]="selectedCities"></p-multiSelect>
+    <p-multiSelect (onChange)="selectionChanged($event)" [options]="cities2" optionLabel="name"
+                   [(ngModel)]="selectedCities"></p-multiSelect>
+    <tr *ngFor="let item of selectedCities">
+      <td>{{item.name}}</td>
+    </tr>
   </div>
 </div>
 <!--<p-multiSelect [options]="cities" [(ngModel)]="selectedCities"></p-multiSelect>-->
